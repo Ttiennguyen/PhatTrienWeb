@@ -1,0 +1,13 @@
+@model WebChild.Data.Product
+
+
+
+    <div class="box-product">
+        <a class="image" href="product.html" title="View more"> <img src="~/image/ex/@Model.image" alt=""> <span class="new">Sale</span> </a>
+        <h3 class="name"><a href="product.html" title="">@Model.ProductName</a></h3>
+        <p class="wrap_price"> <span class="price-old">$@Model.ProductPrice</span> <span class="price-new">$@Model.ProductPriceSale</span> </p>
+        <p class="submit">
+            <input type="button" value="Add to Cart" class="button">
+        </p>
+    </div>
+

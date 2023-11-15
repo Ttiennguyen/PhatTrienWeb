@@ -1,0 +1,26 @@
+@using Microsoft.AspNetCore.Identity
+@using WebChild.Areas.Identity.Data
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <p id="welcome">
+        Welcome
+        <a id="manage" class="" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserName(User)! </a>
+        or
+        <a id="" class="" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">Logout</a>
+    </p>
+    
+}
+else
+{
+    
+    <p id ="welcome"> Welcome <a class="" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a> or  <a class="" id="register" asp-area="Identity" asp-page="/Account/Register">create an account</a></p>
+
+
+        
+ 
+}
+

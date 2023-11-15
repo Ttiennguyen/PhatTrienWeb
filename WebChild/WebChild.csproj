@@ -1,0 +1,141 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.23" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.23" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.23" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.23" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.23">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Product\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Product\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Product\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Product\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Product\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\1.jpeg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\arrows.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg-textture.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg123.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_cart.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_footer.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_footer_up.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_list.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_li_b.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_li_cate.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_li_cate.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_li_nav.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_menu.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_nav.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_price.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_repeat.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_repeat_mobile.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_tab.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_tab2.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_title.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_top_cart.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_tr_cart.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\bg_tr_cart_tablet.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\cart.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\cart_bg.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\controls.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\del.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\about.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\b1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\b2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\b3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\b4.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\b5.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\b6.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\bl1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\bl2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\bl3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p1-209x179.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p1-big.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p1-small.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p2-209x179.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p2-big.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p2-small.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p3-209x179.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p3-big.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p3-small.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p4-209x179.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p4-big.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p4-small.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p5-209x179.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\p6-209x179.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\pro-1.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\pro-2.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\pro-3.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\pro-4.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\pro-5.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\pro-6.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\pro-6.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\pro-7.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\s1.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\s2.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\ex\s3.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\face.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\grid.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\grid_off.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\heart.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_1.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_11.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_2.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_29.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_3.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_4.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_47.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_5.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_6.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_65.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_67.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_69.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_7.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\icon_71.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\jquery.selectBox-arrow.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\line_s.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\list.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\list_off.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\loading.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\loadingAnimation.gif" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\logo.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\mails.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\next-b-small.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\next-b.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\next-b_tablet.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\prev-b-small.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\prev-b.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\prev-b_tablet.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\print.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\reload.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\remove-small.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\s2.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\share.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\share2.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\small-banner-blue-225x161.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\small-banner-green-225x161.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\stars-0.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\stars-1.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\stars-2.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\stars-3.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\stars-4.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\stars-5.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\s_btn.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\title_prod_list.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\title_sidebar.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\image\twitt.png" />
+    </ItemGroup>
+
+</Project>

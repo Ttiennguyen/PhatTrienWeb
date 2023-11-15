@@ -1,0 +1,15 @@
+<div>
+    <h3>@ViewBag.ListTitle</h3>
+    @for (int i= 0; i<ViewBag.Items.Count; i++)
+    {
+        <li>@ViewBag.Items[i]</li>
+            <div class="box-product">
+                <a class="image" href="product.html" title="View more"> <img src="~/image/@ViewBag.Image" alt=""> <span class="new">Sale</span> </a>
+                <h3 class="name"><a href="product.html" title="">@ViewBag.Name</a></h3>
+                <p class="wrap_price"> <span class="price-old">$119.50</span> <span class="price-new">$107.75</span> </p>
+                <p class="submit">
+                    <input type="button" value="Add to Cart" class="button">
+                </p>
+            </div>
+    }
+</div>
