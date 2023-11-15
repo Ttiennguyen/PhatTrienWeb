@@ -24,7 +24,13 @@ public class HomeController : Controller
     public  IActionResult Index()
     {
         var appDbContext =   _context.Products.Take(4).Where(p=>p.CategoryId==1).ToList();
-        return View(appDbContext);
+        var otherProducts = _context.Products.Take(4).Where(p => p.CategoryId == 2).ToList();
+        var toyProduct = _context.Products.Take(4).Where(p => p.CategoryId == 3).ToList();
+        // view bag 
+        ViewBag.Products = appDbContext;
+        ViewBag.OtherProducts = otherProducts;
+        ViewBag.ToyProduct = toyProduct;
+        return View();
     }
 
     // public async Task<IActionResult> List(int id)

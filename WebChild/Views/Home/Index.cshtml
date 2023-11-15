@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+
 }
 <div id="content">
     <div id="slide-wrapper">
@@ -40,11 +41,10 @@
         <div>
             <h1 class="title_module"><span>Latest Products</span></h1>
             <div class="box-content">
-               @for (int i = 0; i < Model.Count(); i++)
-               {
-                   <partial name="_ProductPartial1" for="@Model[i]"/>
-               }
-
+                @foreach (var product in ViewBag.Products as List<WebChild.Data.Product>)
+                {
+                    <partial name="_ProductPartial1" for="@product"/>
+                }
                 <div class="box-product last-item">
                     <a class="image" href="product.html" title="View more"> <img src="~/image/ex/p4-209x179.jpg" alt=""> </a>
                     <h3 class="name"><a href="product.html" title="">Locomotive in green, red and blue</a></h3>
@@ -61,9 +61,9 @@
         <div>
             <h1 class="title_module"><span>Special Products</span></h1>
             <div class="box-content">
-                @for (int i = 0; i < Model.Count(); i++)
+                @foreach (var otherProduct in ViewBag.OtherProducts as List<WebChild.Data.Product>)
                 {
-                    <partial name="_ProductPartial" for="@Model[i]"/>
+                    <partial name="_ProductPartial1" for="@otherProduct"/>
                 }
             </div>
         </div>
