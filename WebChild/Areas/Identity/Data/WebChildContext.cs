@@ -5,7 +5,7 @@ using WebChild.Areas.Identity.Data;
 
 namespace WebChild.Data;
 
-public class WebChildContext : IdentityDbContext<AppUser>
+public class WebChildContext : IdentityDbContext
 {
     public WebChildContext(DbContextOptions<WebChildContext> options)
         : base(options)

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Home Page";
     Layout = "_Layout2";
 }
-
+<h1>tttttt</h1>
 <div class="breadcrumb"> &nbsp;<a href="index.html">Home&nbsp;</a> » &nbsp;<a href="#">Clothes For Boys&nbsp;</a> </div>
 <h1><span class="h1-top">Clothes For Boys</span></h1>
 <div class="category-info">
@@ -43,17 +43,34 @@
 <div class="product-compare"><a href="#" id="compare-total">Product Compare (0)</a></div>
 <div class="product-list">
 @for(var i = 0; i < Model.Count(); i++) {
-    <div class="box-product"> <span class="new">Sale</span> <a asp-action="DetailProduct" asp-route-id="@Model[i].Id" class="image" title="View more"> <img src="~/image/@Model[i].image" alt="" /> <span class="new2">Sale</span> </a>
-        <div class="list_grid_right">
-            <h3 class="name"><a asp-action="DetailProduct" asp-route-id=" @Model[i].Id"  title="">@Model[i].ProductName</a></h3>
-            <p class="wrap_price"> <span class="price-old">@Model[i].ProductPrice</span> <span class="price-new">$@Model[i].ProductPriceSale</span> <span class="price-tax">Ex Tax: $50.00</span> </p>
-            <p class="description">@Model[i].ProductDescription</p>
-            <p class="submit">
-                <input type="button" value="Add to Cart" class="button">
-            </p>
-            <p class="links_add"> <a>Add to Wish List</a> <a>Add to Compare</a> </p>
+    @if (@Model[i].Status.StatusName.Equals("Sale"))
+    {
+        <div class="box-product"> <span class="new">Sale</span> <a asp-action="DetailProductSale" asp-route-id="@Model[i].Id" class="image" title="View more"> <img src="~/image/@Model[i].image" alt=""/> <span class="new2">Sale</span> </a>
+            <div class="list_grid_right">
+                <h3 class="name"><a asp-action="DetailProductSale" asp-route-id=" @Model[i].Id" title="">@Model[i].ProductName</a></h3>
+                <p class="wrap_price"> <span class="price-old">@Model[i].ProductPrice</span> <span class="price-new">$@Model[i].ProductPriceSale</span> <span class="price-tax">Ex Tax: $50.00</span> </p>
+                <p class="description">@Model[i].ProductDescription</p>
+                <p class="submit">
+                    <input type="button" value="Add to Cart" class="button">
+                </p>
+                <p class="links_add"> <a>Add to Wish List</a> <a>Add to Compare</a> </p>
+            </div>
         </div>
-    </div>
+    }
+    @if (@Model[i].Status.StatusName.Equals("Còn hàng"))
+    {
+        <div class="box-product"><a asp-action="DetailProduct" asp-route-id=" @Model[i].Id" class="image" title="View more"> <img src="~/image/@Model[i].image" alt="" /></a>
+            <div class="list_grid_right">
+                <h3 class="name"><a asp-action="DetailProduct" asp-route-id=" @Model[i].Id"  title="">@Model[i].ProductName</a></h3>
+                <p class="wrap_price"> <span class="price">  @Model[i].ProductPrice $</span>  <span class="price-tax">Ex Tax: $100.00</span> </p>
+                <p class="description">@Model[i].ProductDescription</p>
+                <p class="submit">
+                    <input type="button" value="Add to Cart" class="button">
+                </p>
+                <p class="links_add"> <a>Add to Wish List</a> <a>Add to Compare</a> </p>
+            </div>
+        </div>
+    }
 }
 </div>
 <div class="pagination">

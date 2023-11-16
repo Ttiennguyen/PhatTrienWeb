@@ -45,14 +45,6 @@
                 {
                     <partial name="_ProductPartial1" for="@product"/>
                 }
-                <div class="box-product last-item">
-                    <a class="image" href="product.html" title="View more"> <img src="~/image/ex/p4-209x179.jpg" alt=""> </a>
-                    <h3 class="name"><a href="product.html" title="">Locomotive in green, red and blue</a></h3>
-                    <p class="wrap_price"> <span class="price">$1,177.00</span> </p>
-                    <p class="submit">
-                        <input type="button" value="Add to Cart" class="button">
-                    </p>
-                </div>
             </div>
         </div>
     </div>
@@ -73,38 +65,10 @@
         <div>
             <h1 class="title_module"><span>Featured Products</span></h1>
             <div class="box-content">
-                <div class="box-product">
-                    <a class="image" href="product.html" title="View more"> <img src="~/image/ex/p3-209x179.jpg" alt=""> </a>
-                    <h3 class="name"><a href="product.html" title="">Brown jacket for boys and girls</a></h3>
-                    <p class="wrap_price"> <span class="price">$589.50</span> </p>
-                    <p class="submit">
-                        <input type="button" value="Add to Cart" class="button">
-                    </p>
-                </div>
-                <div class="box-product">
-                    <a class="image" href="product.html" title="View more"> <img src="~/image/ex/p4-209x179.jpg" alt=""> </a>
-                    <h3 class="name"><a href="product.html" title="">Funny toy in green, red and blue</a></h3>
-                    <p class="wrap_price"> <span class="price">$120.68</span> </p>
-                    <p class="submit">
-                        <input type="button" value="Add to Cart" class="button">
-                    </p>
-                </div>
-                <div class="box-product">
-                    <a class="image" href="product.html" title="View more"> <img src="~/image/ex/p5-209x179.jpg" alt=""> <span class="new">Sale</span> </a>
-                    <h3 class="name"><a href="product.html" title="">Brown shoes for boys</a></h3>
-                    <p class="wrap_price"> <span class="price-old">$119.50</span> <span class="price-new">$107.75</span> </p>
-                    <p class="submit">
-                        <input type="button" value="Add to Cart" class="button">
-                    </p>
-                </div>
-                <div class="box-product last-item">
-                    <a class="image" href="product.html" title="View more"> <img src="~/image/ex/p6-209x179.jpg" alt=""> </a>
-                    <h3 class="name"><a href="product.html" title="">Locomotive in green, red and blue</a></h3>
-                    <p class="wrap_price"> <span class="price">$236.99</span> </p>
-                    <p class="submit">
-                        <input type="button" value="Add to Cart" class="button">
-                    </p>
-                </div>
+                @foreach (var toyProduct in ViewBag.ToyProduct as List<WebChild.Data.Product>)
+                {
+                    <partial name="_ProductPartial1" for="@toyProduct"/>
+                }
             </div>
         </div>
     </div>

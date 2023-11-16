@@ -118,14 +118,7 @@
         </div>
         <div id="menu">
             <ul>
-                <li class="menu_item down"><a asp-controller="Product" asp-action="ClothesGirl">Clothes For Girls</a></li>
-                <li class="menu_item down"><a asp-controller="Product" asp-action="ClothesBoy">Clothes For Boys</a> </li>
-                <li class="menu_item down"><a href="category.html">Toys</a></li>
-                <li class="menu_item down"><a href="category.html">Safety</a></li>
-                <li class="menu_item down"><a href="category.html">Furniture</a></li>
-                <li class="menu_item down"><a href="category.html">Prams</a> </li>
-                <li class="menu_item down"><a href="category.html">At Home</a> </li>
-                <li class="last_item menu_item down"><a href="category.html">Child Seats</a> </li>
+                 @await Component.InvokeAsync("Category")
             </ul>
         </div>
         <div id="mobile-menu">
