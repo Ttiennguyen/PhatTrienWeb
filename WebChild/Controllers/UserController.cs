@@ -48,6 +48,10 @@ public class UserController : Controller
             user.LastName = usermodel.LastName;
 
             user.UserName = usermodel.Email;
+            
+            user.PhoneNumber = usermodel.PhoneNumber;
+
+            user.Address = usermodel.Address;
 
             // await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
             // await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
@@ -89,7 +93,65 @@ public class UserController : Controller
         }
         return View();
     }
+    public IActionResult Login()
+    {
+        return View();
+    }
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginViewModel usermodel)
+    {
+        string returnUrl ="/Home";
 
+        // ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+        if (ModelState.IsValid)
+        {
+            // This doesn't count login failures towards account lockout
+            // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+            var result = await _signInManager.PasswordSignInAsync(usermodel.Email, usermodel.Password, usermodel.RememberMe, lockoutOnFailure: false);
+            if (result.Succeeded)
+            {
+                // _logger.LogInformation("User logged in.");
+                return LocalRedirect(returnUrl);
+            }
+            // if (result.RequiresTwoFactor)
+            // {
+            //     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+            // }
+            // if (result.IsLockedOut)
+            // {
+            //     _logger.LogWarning("User account locked out.");
+            //     return RedirectToPage("./Lockout");
+            // }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return View();
+            }
+        }
+        return View();
+    }
+    public IActionResult Logout()
+    {
+        return View();
+    }
+    [HttpPost]
+    public async Task<IActionResult> Logout(string returnUrl = null)
+    {
+        await _signInManager.SignOutAsync();
+        // _logger.LogInformation("User logged out.");
+        if (returnUrl != null)
+        {
+            return LocalRedirect(returnUrl);
+        }
+        else
+        {
+            // This needs to be a redirect so that the browser performs a new
+            // request and the identity for the user gets updated.
+            return View();
+        }
+    }
+    
     private AppUser CreateUser()
     {
         try

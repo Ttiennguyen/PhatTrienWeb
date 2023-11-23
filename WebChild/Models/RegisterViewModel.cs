@@ -40,4 +40,15 @@ public class RegisterViewModel
     [Display(Name = "Confirm password")]
     [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
     public string? ConfirmPassword { get; set; }
+    
+    [Required(ErrorMessage = "Phone Number is required")]
+    [Display(Name = "Phone Number")]
+    [DataType(DataType.PhoneNumber)]
+    [RegularExpression(@"^\+84\d{9,10}$", ErrorMessage = "Entered phone format is not valid. Please use the format +84123...")]
+    public string? PhoneNumber { get; set; }
+    
+    [Required]
+    [StringLength(255, ErrorMessage = "The last name is error")]
+    [Display(Name="Address")]
+    public string? Address { get; set; }
 }
