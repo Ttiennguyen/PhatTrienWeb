@@ -9,6 +9,8 @@
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.23" />
       <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.23" />
+      <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+      <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.SessionState" Version="1.0.0-preview.3.22370.2" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.23" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.23" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.23">
@@ -136,6 +138,12 @@
       <_ContentIncludedByDefault Remove="wwwroot\js\image\title_prod_list.png" />
       <_ContentIncludedByDefault Remove="wwwroot\js\image\title_sidebar.png" />
       <_ContentIncludedByDefault Remove="wwwroot\js\image\twitt.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Areas\admin\Controllers\" />
+      <Folder Include="Areas\admin\Data\" />
+      <Folder Include="Areas\admin\Models\" />
     </ItemGroup>
 
 </Project>

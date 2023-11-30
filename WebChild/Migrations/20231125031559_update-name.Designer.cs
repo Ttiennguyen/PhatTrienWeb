@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebChild.Data;
 
@@ -11,9 +12,10 @@ using WebChild.Data;
 namespace WebChild.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231125031559_update-name")]
+    partial class updatename
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -317,42 +319,7 @@ namespace WebChild.Migrations
                     b.ToTable("StatusEnumerable");
                 });
 
-            modelBuilder.Entity("WebChild.Models.Order", b =>
-                {
-                    b.Property<int>("OrderId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderId"), 1L, 1);
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasMaxLength(450)
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email_User")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("QuanlityTotal")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ShippingDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Shipping_Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Total_Price")
-                        .HasColumnType("int");
-
-                    b.HasKey("OrderId");
-
-                    b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("WebChild.Models.Product_Order", b =>
+            modelBuilder.Entity("WebChild.Data.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -360,25 +327,132 @@ namespace WebChild.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("OrderId")
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(90)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("char(64)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(13)");
+
+                    b.Property<int?>("Role")
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("char(50)");
 
-                    b.Property<int>("ProductId")
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("WebChild.Models.Bill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("Quanlity")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime?>("DateOfPurchase")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeliveryAddress")
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("DeliveryPhoneNumber")
+                        .HasColumnType("nvarchar(13)");
+
+                    b.Property<int?>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("OrderId");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Bills");
+                });
+
+            modelBuilder.Entity("WebChild.Models.BillDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("BillDetailAmount")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("BillDetailTotal")
+                        .HasColumnType("float");
+
+                    b.Property<int>("BillId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BillId");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Product_Orders");
+                    b.ToTable("BillDetails");
+                });
+
+            modelBuilder.Entity("WebChild.Models.CartDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("CartDetailAmount")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("CartDetailTotal")
+                        .HasColumnType("float");
+
+                    b.Property<int>("CartId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CartId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("CartDetails");
+                });
+
+            modelBuilder.Entity("WebChild.Models.CartItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ShoppingCartItems");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -451,11 +525,22 @@ namespace WebChild.Migrations
                     b.Navigation("Status");
                 });
 
-            modelBuilder.Entity("WebChild.Models.Product_Order", b =>
+            modelBuilder.Entity("WebChild.Models.Bill", b =>
                 {
-                    b.HasOne("WebChild.Models.Order", "Order")
-                        .WithMany("Product_Orders")
-                        .HasForeignKey("OrderId")
+                    b.HasOne("WebChild.Data.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("WebChild.Models.BillDetail", b =>
+                {
+                    b.HasOne("WebChild.Models.Bill", "Bill")
+                        .WithMany("BillDetails")
+                        .HasForeignKey("BillId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -465,9 +550,39 @@ namespace WebChild.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Order");
+                    b.Navigation("Bill");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("WebChild.Models.CartDetail", b =>
+                {
+                    b.HasOne("WebChild.Models.CartItem", "Cart")
+                        .WithMany("CartDetails")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebChild.Data.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cart");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("WebChild.Models.CartItem", b =>
+                {
+                    b.HasOne("WebChild.Data.User", "User")
+                        .WithMany("Carts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("WebChild.Data.Category", b =>
@@ -480,9 +595,19 @@ namespace WebChild.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("WebChild.Models.Order", b =>
+            modelBuilder.Entity("WebChild.Data.User", b =>
                 {
-                    b.Navigation("Product_Orders");
+                    b.Navigation("Carts");
+                });
+
+            modelBuilder.Entity("WebChild.Models.Bill", b =>
+                {
+                    b.Navigation("BillDetails");
+                });
+
+            modelBuilder.Entity("WebChild.Models.CartItem", b =>
+                {
+                    b.Navigation("CartDetails");
                 });
 #pragma warning restore 612, 618
         }

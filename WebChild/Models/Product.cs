@@ -39,6 +39,5 @@ public class Product
     [Column(TypeName = "nvarchar(500)")]
     public string? ProductDescription { get; set; }
     
-    public ICollection<CartDetail>? CartDetails;
-    public ICollection<BillDetail>? BillDetails;
+    public ICollection<Order>? CartDetails;
 }

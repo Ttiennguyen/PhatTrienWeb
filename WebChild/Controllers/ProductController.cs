@@ -5,14 +5,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using WebChild.Data;
+using WebChild.Models;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+
+
 
 namespace WebChild.Controllers
 {
     public class ProductController : Controller
     {
         private readonly AppDbContext _context;
-
         public ProductController(AppDbContext context)
         {
             _context = context;
@@ -34,18 +39,6 @@ namespace WebChild.Controllers
         public async Task<IActionResult> List(int id)
         {
             var appDbContext = _context.Products.Include(p => p.Category).Include(p => p.Status).Where(p=>p.CategoryId==id);
-            return View(await appDbContext.ToListAsync());
-        }
-
-        public async Task<IActionResult> ClothesBoy()
-        {
-            var appDbContext = _context.Products.Include(p => p.Category).Include(p => p.Status).Where(p=>p.CategoryId==2);
-            return View(await appDbContext.ToListAsync());
-        }
-        
-        public async Task<IActionResult> ClothesGirl()
-        {
-            var appDbContext = _context.Products.Include(p => p.Category).Include(p => p.Status).Where(p=>p.CategoryId==1);
             return View(await appDbContext.ToListAsync());
         }
         
@@ -230,5 +223,81 @@ namespace WebChild.Controllers
         {
           return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+        
+        /* ******************************************************** */
+        private List<Product> ShoppingCart
+        {
+            get
+            {
+                var cartJson = HttpContext.Session.GetString("ShoppingCart");
+                return string.IsNullOrEmpty(cartJson) ? new List<Product>() : JsonConvert.DeserializeObject<List<Product>>(cartJson);
+            }
+            set
+            {
+                HttpContext.Session.SetString("ShoppingCart", JsonConvert.SerializeObject(value));
+            }
+        }
+        // Add item to the shopping cart
+        public IActionResult AddToCart(int? id)
+        {
+
+            var product = _context.Products.FirstOrDefault(p => p.Id == id);
+
+            var cart = ShoppingCart;
+            cart.Add(product);
+            ShoppingCart = cart;
+
+            return RedirectToAction(nameof(ShoppingCartView));
+        }
+        // Display shopping cart
+        public IActionResult ShoppingCartView()
+        {
+            var cart = ShoppingCart;
+            return View(cart);
+        }
+        // Remove item from the shopping cart
+        public IActionResult RemoveFromCart(int? id)
+        {
+            //     var product = _context.Products.FirstOrDefault(p => p.Id == id);
+            //
+            //     var cart = ShoppingCart;
+            //     cart.Remove(product);
+            //     ShoppingCart = cart;
+            //
+            //     return RedirectToAction(nameof(ShoppingCartView));
+            // Check if the id is valid
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            // Log debug information
+            Console.WriteLine($"Attempting to remove product with id: {id}");
+
+            // Find the product with the specified id
+            var product = _context.Products.FirstOrDefault(p => p.Id == id);
+
+            // Check if the product is found
+            if (product == null)
+            {
+                Console.WriteLine($"Product with id {id} not found");
+                return NotFound();
+            }
+
+            // Log debug information
+            Console.WriteLine($"Product found: {product.ProductName}");
+            
+            // Add your logic here to handle the removal or choose not to remove
+            // For example, you might want to show a message indicating that removal is not allowed
+            var cart = ShoppingCart;
+            cart.Remove(product);
+            ShoppingCart = cart;
+            // In this example, I'm just redirecting to the shopping cart view without making any changes
+            Console.WriteLine($"Product with id {id} removed successfully");
+            return RedirectToAction(nameof(ShoppingCartView));
+        }
+
     }
+
+   
 }

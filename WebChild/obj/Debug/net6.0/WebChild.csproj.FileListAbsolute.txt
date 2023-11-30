@@ -236,7 +236,6 @@
 /Users/nguyentien/RiderProjects/WebChild/WebChild/bin/Debug/net6.0/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll
 /Users/nguyentien/RiderProjects/WebChild/WebChild/bin/Debug/net6.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
 /Users/nguyentien/RiderProjects/WebChild/WebChild/bin/Debug/net6.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
-/Users/nguyentien/RiderProjects/WebChild/WebChild/bin/Debug/net6.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
 /Users/nguyentien/RiderProjects/WebChild/WebChild/bin/Debug/net6.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
 /Users/nguyentien/RiderProjects/WebChild/WebChild/bin/Debug/net6.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
 /Users/nguyentien/RiderProjects/WebChild/WebChild/obj/Debug/net6.0/staticwebassets.build.json
@@ -280,3 +279,6 @@
 /Users/nguyentien/RiderProjects/WebChild/WebChild/bin/Debug/net6.0/runtimes/win-x86/native/e_sqlite3.dll
 /Users/nguyentien/RiderProjects/WebChild/WebChild/obj/Debug/net6.0/scopedcss/Views/Shared/_LayoutIndex.cshtml.rz.scp.css
 /Users/nguyentien/RiderProjects/WebChild/WebChild/obj/Debug/net6.0/scopedcss/Views/Shared/_Layout2.cshtml.rz.scp.css
+/Users/nguyentien/RiderProjects/WebChild/WebChild/bin/Debug/net6.0/Microsoft.AspNetCore.SystemWebAdapters.dll
+/Users/nguyentien/RiderProjects/WebChild/WebChild/bin/Debug/net6.0/Microsoft.AspNetCore.SystemWebAdapters.SessionState.dll
+/Users/nguyentien/RiderProjects/WebChild/WebChild/bin/Debug/net6.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll

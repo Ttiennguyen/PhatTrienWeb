@@ -18,13 +18,11 @@ public class AppDbContext:IdentityDbContext<AppUser>
             builder.ApplyConfiguration(new ApplicationUserEntityConfiguration());
         }
         
-        public DbSet<Bill> Bills { get; set; } = null!;
-        public DbSet<BillDetail> BillDetails { get; set; } = null!;
-        public DbSet<Cart> Carts { get; set; } = null!;
-        public DbSet<CartDetail> CartDetails { get; set; } = null!;
+        public DbSet<Order> Orders { get; set; } = null!;
+        public DbSet<Product_Order> Product_Orders { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
         public DbSet<Product> Products { get; set; } = null!;
-        public DbSet<User> Users { get; set; } = null!;
+       
         public DbSet<Status> StatusEnumerable { get; set; } = null!;
         
 }
