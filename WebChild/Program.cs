@@ -19,7 +19,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(1); // Set the session timeout duration
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set the session timeout duration
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true; // Make the session cookie essential
 });

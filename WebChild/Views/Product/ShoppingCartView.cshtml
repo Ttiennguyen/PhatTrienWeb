@@ -30,7 +30,7 @@
             <td>@Model[i].ProductName</td>
             <td>@Model[i].ProductPrice</td>
             <td>
-                    <a asp-controller="Product" asp-action="RemoveFromCart" asp-route-id="@Model[i].Id">remove</a>
+                    <a asp-controller="Product"  asp-action="RemoveFromCart" asp-route-id="@Model[i].Id">remove</a>
             </td>
         </tr>
     }
