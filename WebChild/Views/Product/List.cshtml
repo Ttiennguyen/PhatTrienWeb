@@ -4,7 +4,6 @@
     ViewData["Title"] = "Home Page";
     Layout = "_Layout2";
 }
-<h1>tttttt</h1>
 <div class="breadcrumb"> &nbsp;<a href="index.html">Home&nbsp;</a> » &nbsp;<a href="#">Clothes For Boys&nbsp;</a> </div>
 <h1><span class="h1-top">Clothes For Boys</span></h1>
 <div class="category-info">
@@ -51,7 +50,7 @@
                 <p class="wrap_price"> <span class="price-old">@Model[i].ProductPrice</span> <span class="price-new">$@Model[i].ProductPriceSale</span> <span class="price-tax">Ex Tax: $50.00</span> </p>
                 <p class="description">@Model[i].ProductDescription</p>
                 <p class="submit">
-                    <input type="button" value="Add to Cart" class="button">
+                    <a asp-route="addcart" asp-route-productid="@Model[i].Id"><input type="button" value="Add to Cart" class="button"></a>
                 </p>
                 <p class="links_add"> <a>Add to Wish List</a> <a>Add to Compare</a> </p>
             </div>
@@ -65,7 +64,7 @@
                 <p class="wrap_price"> <span class="price">  @Model[i].ProductPrice $</span>  <span class="price-tax">Ex Tax: $100.00</span> </p>
                 <p class="description">@Model[i].ProductDescription</p>
                 <p class="submit">
-                    <input type="button" value="Add to Cart" class="button">
+                    <a asp-route="addcart" asp-route-productid="@Model[i].Id"><input type="button" value="Add to Cart" class="button"></a>
                 </p>
                 <p class="links_add"> <a>Add to Wish List</a> <a>Add to Compare</a> </p>
             </div>

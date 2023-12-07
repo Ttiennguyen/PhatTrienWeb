@@ -35,6 +35,46 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvQ2F0ZWdvcnkvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Product/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvUHJvZHVjdC9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Product/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvUHJvZHVjdC9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Product/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvUHJvZHVjdC9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvUHJvZHVjdC9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvUHJvZHVjdC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Status/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvU3RhdHVzL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Status/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvU3RhdHVzL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Status/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvU3RhdHVzL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Status/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvU3RhdHVzL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Status/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvU3RhdHVzL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -8,9 +8,7 @@
         <h3 class="name"><a href="/Product/DetailProduct/@Model.Id" title="">@Model.ProductName</a></h3>
         <p class="wrap_price"> <span class="price">$@Model.ProductPrice</span> </p>
         <p class="submit">
-             <form asp-controller="Product" asp-action="AddToCart" asp-route-id="@Model.Id" method="post">
-                <input type="submit" value="Add to Cart" class="button">
-             </form>
+            <a asp-route="addcart" asp-route-productid="@Model.Id"><input class="button" value="Add to Cart" type="button"></a>
         </p>
     </div>
 }
