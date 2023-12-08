@@ -62,11 +62,13 @@ namespace WebChild.Controllers
             return View(products);
         }
         
+        
         public async Task<IActionResult> Category(int id)
         {
             var appDbContext = _context.Products.Include(p => p.Category).Include(p => p.Status).Where(p=>p.CategoryId==id);
             return View(await appDbContext.ToListAsync());
         }
+        
         
         public async Task<IActionResult> List(int id)
         {
@@ -261,9 +263,7 @@ namespace WebChild.Controllers
         /// Thêm sản phẩm vào cart
         [Route ("addcart/{productid:int}", Name = "addcart")]
         public IActionResult AddToCart([FromRoute]int productid) {
-            var product = _context.Products
-                .Where (p => p.Id == productid)
-                .FirstOrDefault ();
+            var product = _context.Products.Where (p => p.Id == productid).FirstOrDefault ();
             if (product == null)
                 return NotFound ("Không có sản phẩm");
 
@@ -322,85 +322,51 @@ namespace WebChild.Controllers
         }
 
         [Route("/checkout")]
-        public IActionResult CheckOut()
+        public IActionResult CheckOutSS()
         {
             // Xử lý khi đặt hàng
             return View();
         }
-
-        /* ******************************************************** */
-        private List<Product> ShoppingCart
+        public IActionResult Checkout(IFormCollection Form)
         {
-            get
+            try
             {
-                var cartJson = HttpContext.Session.GetString("ShoppingCart");
-                return string.IsNullOrEmpty(cartJson) ? new List<Product>() : JsonConvert.DeserializeObject<List<Product>>(cartJson);
+                Order _order = new Order();
+                _order.CreatedDate = DateTime.Now;
+                _order.QuanlityTotal = 0;
+                _order.Total_Price = 0;
+                _order.ShippingDate = DateTime.Now;
+                _order.Status = "Dang Giao Hang";
+                _order.Email_User = Form["EmAIL"];
+                _order.Shipping_Address = Form["AddRess"];
+                _context.Orders.Add(_order);
+
+                _context.SaveChanges();
+                foreach (var cartItem in GetCartItems())
+                {
+                    Product_Order orderProduct = new Product_Order
+                    {
+                        OrderId = _order.OrderId,
+                        ProductId = cartItem.product.Id,
+                        Quanlity = cartItem.quantity,
+                        Price = cartItem.product.ProductPrice
+                    };
+
+                    // Insert the new Product_Order object into the database
+                    _context.Product_Orders.Add(orderProduct);
+                }
+
+                // Save the changes to the database
+                _context.SaveChanges();
+                return RedirectToAction("CheckoutSS");
             }
-            set
+            catch
             {
-                HttpContext.Session.SetString("ShoppingCart", JsonConvert.SerializeObject(value));
+                return Content("Error");
             }
         }
-        // Add item to the shopping cart
-        public IActionResult AddToCart(int? id)
-        {
-
-            var product = _context.Products.FirstOrDefault(p => p.Id == id);
-
-            var cart = ShoppingCart;
-            cart.Add(product);
-            ShoppingCart = cart;
-
-            return RedirectToAction(nameof(ShoppingCartView));
-        }
-        // Display shopping cart
-        public IActionResult ShoppingCartView()
-        {
-            var cart = ShoppingCart;
-            return View(cart);
-        }
-        // Remove item from the shopping cart
-        public IActionResult RemoveFromCart(int? id)
-        {
-            //     var product = _context.Products.FirstOrDefault(p => p.Id == id);
-            //
-            //     var cart = ShoppingCart;
-            //     cart.Remove(product);
-            //     ShoppingCart = cart;
-            //
-            //     return RedirectToAction(nameof(ShoppingCartView));
-            // Check if the id is valid
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            // Log debug information
-            Console.WriteLine($"Attempting to remove product with id: {id}");
-
-            // Find the product with the specified id
-            var product = _context.Products.FirstOrDefault(p => p.Id == id);
-
-            // Check if the product is found
-            if (product == null)
-            {
-                Console.WriteLine($"Product with id {id} not found");
-                return NotFound();
-            }
-
-            // Log debug information
-            Console.WriteLine($"Product found: {product.ProductName}");
-            
-            // Add your logic here to handle the removal or choose not to remove
-            // For example, you might want to show a message indicating that removal is not allowed
-            var cart = ShoppingCart;
-            cart.Remove(product);
-            ShoppingCart = cart;
-            // In this example, I'm just redirecting to the shopping cart view without making any changes
-            Console.WriteLine($"Product with id {id} removed successfully");
-            return RedirectToAction(nameof(ShoppingCartView));
-        }
-
+        
+       
     }
 
    

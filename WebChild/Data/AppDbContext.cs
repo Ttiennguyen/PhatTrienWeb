@@ -22,7 +22,7 @@ public class AppDbContext:IdentityDbContext<AppUser>
         public DbSet<Product_Order> Product_Orders { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
         public DbSet<Product> Products { get; set; } = null!;
-       
+    
         public DbSet<Status> StatusEnumerable { get; set; } = null!;
         
 }

@@ -43,7 +43,13 @@
       </tr>
   </table>
 
-  <a asp-controller="Product" asp-action="Checkout" class="btn btn-success">Gửi đơn hàng</a>
+  @* <a asp-controller="Product" asp-action="Checkout" class="btn btn-success">Gửi đơn hàng</a> *@
+    @using (Html.BeginForm("Checkout","Product"))
+    {
+        <div> Email:<input type="text" name="EmAIL" required /></div>
+        <div> Shipping Address:<input type="text" name="AddRess" required /></div>
+        <input type="submit" class="Checkout" value="Checkout"/>
+    }
 
       @section Scripts {
         <script>

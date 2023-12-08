@@ -40,4 +40,5 @@ public class Product
     public string? ProductDescription { get; set; }
     
     public ICollection<Order>? CartDetails;
+    public ICollection<Product_Order>? Product_Orders;
 }

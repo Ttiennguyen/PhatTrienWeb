@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using WebChild.Data;
 
 namespace WebChild.Models;
@@ -14,6 +15,9 @@ public class Product_Order
     public int OrderId { get; set; }
     public Order? Order { get; set; }
     
+    [Column(TypeName = "int")]
     public int Quanlity { get; set; }
-    public double Price { get; set; }
+    
+    [Column(TypeName = "float")]
+    public float? Price { get; set; }
 }

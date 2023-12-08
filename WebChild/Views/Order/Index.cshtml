@@ -1,0 +1,74 @@
+@model IEnumerable<WebChild.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Đơn hàng</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Đơn hàng ID
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuanlityTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShippingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shipping_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email_User)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuanlityTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShippingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shipping_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email_User)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            <a asp-action="OrderDetail" asp-route-id="@item.OrderId">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
+        </td>
+    </tr>
+}
+    </tbody>
+</table>
