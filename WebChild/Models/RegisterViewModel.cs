@@ -44,7 +44,7 @@ public class RegisterViewModel
     [Required(ErrorMessage = "Phone Number is required")]
     [Display(Name = "Phone Number")]
     [DataType(DataType.PhoneNumber)]
-    [RegularExpression(@"^\+84\d{9,10}$", ErrorMessage = "Entered phone format is not valid. Please use the format +84123...")]
+    [RegularExpression(@"^\+84\d{9,10}$", ErrorMessage = "Entered phone format is not valid. Please use the format +84090...")]
     public string? PhoneNumber { get; set; }
     
     [Required]

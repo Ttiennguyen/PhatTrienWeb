@@ -35,6 +35,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvQ2F0ZWdvcnkvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Order/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvT3JkZXIvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvT3JkZXIvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Order/OrderDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvT3JkZXIvT3JkZXJEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/nguyentien/RiderProjects/WebChild/WebChild/Areas/admin/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvYWRtaW4vVmlld3MvUHJvZHVjdC9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -155,16 +167,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Order/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvRGVsZXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Order/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Order/OrderDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvT3JkZXJEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Order/OrderUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvT3JkZXJVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Product/Cart.cshtml]
@@ -179,28 +187,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9DaGVja091dFNTLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Product/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9DcmVhdGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Product/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9EZWxldGUuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Product/DetailProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9EZXRhaWxQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Product/DetailProductSale.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9EZXRhaWxQcm9kdWN0U2FsZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Product/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9EZXRhaWxzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Product/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Product/Index.cshtml]
@@ -249,10 +241,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Shared/_ProductPartial1.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Qcm9kdWN0UGFydGlhbDEuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Shared/_ProductSale.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Qcm9kdWN0U2FsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/nguyentien/RiderProjects/WebChild/WebChild/Views/Shared/_ValidationScriptsPartial.cshtml]

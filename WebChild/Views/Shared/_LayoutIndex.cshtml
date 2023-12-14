@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using WebChild.Areas.Identity.Data
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+<!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -61,48 +67,48 @@
                         <div class="mini-cart-info">
                             <table>
                                 <tbody>
-                                    <tr>
-                                        <td class="image"><a href="product.html"><img src="~/image/ex/pro-1.png" alt="" title=""></a></td>
-                                        <td class="name">
-                                            <a href="product.html">Scitote</a>
-                                            <div> </div>
-                                        </td>
-                                        <td class="quantity">x&nbsp;1</td>
-                                        <td class="total">$236.99</td>
-                                        <td class="remove"><img src="~/image/remove-small.png" alt="Remove" title="Remove"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="image"><a href="product.html"><img src="~/image/ex/pro-2.png" alt="" title=""></a></td>
-                                        <td class="name">
-                                            <a href="product.html">Retrorsum</a>
-                                            <div> </div>
-                                        </td>
-                                        <td class="quantity">x&nbsp;1</td>
-                                        <td class="total">$60.75</td>
-                                        <td class="remove"><img src="image/remove-small.png" alt="Remove" title="Remove"></td>
-                                    </tr>
+                                <tr>
+                                    <td class="image"><a href="product.html"><img src="~/image/ex/pro-1.png" alt="" title=""></a></td>
+                                    <td class="name">
+                                        <a href="product.html">Scitote</a>
+                                        <div> </div>
+                                    </td>
+                                    <td class="quantity">x&nbsp;1</td>
+                                    <td class="total">$236.99</td>
+                                    <td class="remove"><img src="~/image/remove-small.png" alt="Remove" title="Remove"></td>
+                                </tr>
+                                <tr>
+                                    <td class="image"><a href="product.html"><img src="~/image/ex/pro-2.png" alt="" title=""></a></td>
+                                    <td class="name">
+                                        <a href="product.html">Retrorsum</a>
+                                        <div> </div>
+                                    </td>
+                                    <td class="quantity">x&nbsp;1</td>
+                                    <td class="total">$60.75</td>
+                                    <td class="remove"><img src="image/remove-small.png" alt="Remove" title="Remove"></td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="mini-cart-total">
                             <table>
                                 <tbody>
-                                    <tr>
-                                        <td class="right"><b>Sub-Total:</b></td>
-                                        <td class="right">$249.99</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="right"><b>Eco Tax (-2.00):</b></td>
-                                        <td class="right">$4.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="right"><b>VAT (17.5%):</b></td>
-                                        <td class="right">$43.75</td>
-                                    </tr>
-                                    <tr class="last_item">
-                                        <td class="right"><b>Total:</b></td>
-                                        <td class="right">$297.74</td>
-                                    </tr>
+                                <tr>
+                                    <td class="right"><b>Sub-Total:</b></td>
+                                    <td class="right">$249.99</td>
+                                </tr>
+                                <tr>
+                                    <td class="right"><b>Eco Tax (-2.00):</b></td>
+                                    <td class="right">$4.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="right"><b>VAT (17.5%):</b></td>
+                                    <td class="right">$43.75</td>
+                                </tr>
+                                <tr class="last_item">
+                                    <td class="right"><b>Total:</b></td>
+                                    <td class="right">$297.74</td>
+                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -112,7 +118,17 @@
                 <div id="bottom_right">
                     <partial name="_LoginPartial"/>
                     <p>
-                    <div class="links"><a href="wishlist.html" id="wishlist-total">Wish List (1)</a><a href="myaccount.html">My Account</a><a href="shoppingcart.html">Shopping Cart</a><a href="checkout.html">Checkout</a><a asp-controller="Product" asp-action="Index">Admin</a></div>
+                    <div class="links">
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            var user = await UserManager.GetUserAsync(User);
+                            <a asp-controller="Order" asp-action="OrderUser" asp-route-name="@user.UserName" >Đơn Hàng</a>
+                        }
+                        else
+                        {
+                            <a href="myaccount.html">My Wish</a>
+                        }<a href="myaccount.html">My Account</a><a href="shoppingcart.html">Shopping Cart</a><a href="checkout.html">Checkout</a><a asp-controller="Product" asp-action="Index">Admin</a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -4,18 +4,18 @@
     Layout = "_Layout2";
 }
 
-<header>
+<div>
     <h1>@ViewData["Title"]</h1>
     @{
         if (User.Identity?.IsAuthenticated ?? false)
         {
-            <form class="form-inline" asp-action="Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                <button type="submit" class="nav-link btn btn-link text-dark">Click here to Logout</button>
+            <form  class="form-inline" asp-action="Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <button style="color: #f5a200" type="submit" class="btn btn-link" >Nhấp vào để đăng xuất</button>
             </form>
         }
         else
         {
-            <p>You have successfully logged out of the application.</p>
+            <h2 style="margin-top: 60px;">Bạn đã đăng xuất thành công.</h2>
         }
     }
-</header>
+</div>

@@ -6,9 +6,11 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
+    var user = await UserManager.GetUserAsync(User);
     <p id="welcome">
         Welcome
         <a id="manage" class="" href="#" title="Manage">@UserManager.GetUserName(User)! </a>
+        @* <a id="manage" class="" href="#" title="Manage">@user.LastName @user.LastName</a> *@
         or
         <a id="" class=""  asp-controller="User" asp-action="Logout"  asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">Logout</a>
     </p>
@@ -17,6 +19,5 @@
 else
 {
     <p id ="welcome"> Welcome <a class="" id="login" asp-controller="User" asp-action="Login">Login</a> or  <a class="" id="register" asp-controller="User" asp-action="Register">create an account</a></p>
-    
 }
 

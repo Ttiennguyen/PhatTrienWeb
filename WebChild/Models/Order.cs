@@ -17,6 +17,8 @@ public class Order
     public string? Shipping_Address { get; set; }
     public string? Email_User { get; set; }
     public string? Status { get; set; }
+    
+    public string? Phone { get; set; }
 
     public ICollection<Product_Order> Product_Orders { get; set; }
 

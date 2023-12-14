@@ -15,6 +15,11 @@ public class UserController : Controller
     private readonly UserManager<AppUser> _userManager;
     
     private readonly AppDbContext _context;
+    public const string CARTKEY = "cart";
+    void ClearCart () {
+        var session = HttpContext.Session;
+        session.Remove (CARTKEY);
+    }
 
     public UserController(AppDbContext context,
         SignInManager<AppUser> signInManager,
@@ -142,6 +147,7 @@ public class UserController : Controller
         // _logger.LogInformation("User logged out.");
         if (returnUrl != null)
         {
+            ClearCart();
             return LocalRedirect(returnUrl);
         }
         else
@@ -150,6 +156,7 @@ public class UserController : Controller
             // request and the identity for the user gets updated.
             return View();
         }
+
     }
     
     private AppUser CreateUser()

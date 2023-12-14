@@ -5,41 +5,63 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Chi tiết đơn hàng</h1>
+@if (Model.Count > 0)
+{
+    decimal total = 0;
+    <h1>Chi tiết đơn hàng</h1>
 
-<table class="table">
-    <thead>
+    <table class="table">
+        <thead>
         <tr>
             <th>
-              Đơn Hàng số
+                Đơn hàng số
             </th>
             <th>
-               Tên Sản Phẩm
+                Image
+            </th>
+            <th>
+                Tên sản phẩm
             </th>
             <th>
                 Số lượng
             </th>
             <th>
-               Đơn giá
+            Đơn giá
             <th>
         </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            total = @item.Order.Total_Price;
+            <tr>
+                <td>
+                    @item.Order.OrderId
+                </td>
+                <td>
+                    <img src="~/image/@item.Product.image" alt="Hình ảnh" width="100" height="100"/>
+                </td>
+                <td>
+                    @item.Product.ProductName
+                </td>
+                <td>
+                    x @item.Quanlity
+                </td>
+                <td>
+                    @item.Price
+                </td>
+            </tr>
+        }
+
         <tr>
-            <td>
-                 @Html.DisplayFor(modelItem => item.Order.OrderId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quanlity)
-            </td>
-            <td>
-               @Html.DisplayFor(modelItem => item.Price)
-            </td>
+            <td colspan="4" class="text-right">Tổng tiền</td>
+            <td>@total</td>
+            <td></td>
         </tr>
+        </tbody>
+    </table>
 }
-    </tbody>
-</table>
+else
+{
+    <h1>Trống</h1>
+}

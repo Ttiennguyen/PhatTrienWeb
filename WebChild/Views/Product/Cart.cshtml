@@ -1,4 +1,10 @@
 @model List<CartItem>
+@using Microsoft.AspNetCore.Identity
+@using WebChild.Areas.Identity.Data
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
 @{
     Layout = "_Layout";
 }
@@ -38,17 +44,48 @@
     }
       <tr>
           <td colspan="4" class="text-right">Tổng tiền</td>
-          <td>@(total.ToString("n0"))</td>
+          <td>@total</td>
           <td></td>
       </tr>
   </table>
-
-  @* <a asp-controller="Product" asp-action="Checkout" class="btn btn-success">Gửi đơn hàng</a> *@
-    @using (Html.BeginForm("Checkout","Product"))
+    @if (SignInManager.IsSignedIn(User))
     {
-        <div> Email:<input type="text" name="EmAIL" required /></div>
-        <div> Shipping Address:<input type="text" name="AddRess" required /></div>
-        <input type="submit" class="Checkout" value="Checkout"/>
+        var user = await UserManager.GetUserAsync(User);
+        @* <a asp-controller="Product" asp-action="Checkout" class="btn btn-success">Gửi đơn hàng</a> *@
+        @using (Html.BeginForm("Checkout", "Product"))
+        {
+            <input type="hidden" name="EmAIL" value="@user.UserName" required/>
+            <input type="hidden" name="AddRess" value="@user.Address" required/>
+            <input type="hidden" name="Phone" value="@user.PhoneNumber" required />
+            <input type="hidden" name="Total" value="@total"/>
+            <input type="submit" class="btn btn-success" value="Checkout"/>
+        }
+    }
+    else
+    {
+        @* <a asp-controller="Product" asp-action="Checkout" class="btn btn-success">Gửi đơn hàng</a> *@
+        @using (Html.BeginForm("Checkout","Product"))
+        {
+            <div class="container mt-5">
+                <legend> Thông tin người đặt</legend>
+                <form>
+                    <div class="form-group">
+                        <label for="email">Email or Name:</label>
+                        <input class="form-control" type="text" name="EmAIL" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Shipping Address:</label>
+                        <input class="form-control" type="text" name="AddRess" required/>
+                    </div>
+                    <div>
+                        <label for="phone">Phone:</label>
+                        <input class="form-control" type="tel" name="Phone" pattern="090\d{7}" title="Vui lòng nhập số điện thoại hợp lệ (bắt đầu bằng 090 và có tổng cộng 10 chữ số)" required/>
+                    </div>
+                    <input type="hidden" name="Total" value="@total"/>
+                    <input type="submit" style="margin-top: 10px" class="btn btn-success" value="Checkout"/>
+                </form>
+            </div>
+        }
     }
 
       @section Scripts {

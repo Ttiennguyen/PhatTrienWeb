@@ -14,25 +14,22 @@
             Đơn hàng ID
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
+            Ngày tạo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.QuanlityTotal)
+            Tổng tiền
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Total_Price)
+           Số điện thoại
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ShippingDate)
+            Địa chỉ nhận hàng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Shipping_Address)
+           Email
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email_User)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
+           Trạng thái
         </th>
         <th></th>
     </tr>
@@ -47,13 +44,10 @@
             @Html.DisplayFor(modelItem => item.CreatedDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.QuanlityTotal)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Total_Price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ShippingDate)
+            @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Shipping_Address)
@@ -65,8 +59,9 @@
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            <a asp-action="OrderDetail" asp-route-id="@item.OrderId">Details</a> |
-            <a asp-action="Delete" asp-route-id="@item.OrderId">Delete</a>
+            <button class="btn btn-info" >
+                <a style="color: #FFFFFF; text-decoration: none;" asp-action="OrderDetail" asp-route-id="@item.OrderId">Details</a>
+            </button>
         </td>
     </tr>
 }

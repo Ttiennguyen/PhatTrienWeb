@@ -1,4 +1,3 @@
-@using WebChild.Data
 @model WebChild.Data.Product
 
 @if (@Model.StatusId == 1)
@@ -19,7 +18,7 @@
         <h3 class="name"><a href="/Product/DetailProductSale/@Model.Id" title="">@Model.ProductName</a></h3>
         <p class="wrap_price"> <span class="price-old">$@Model.ProductPrice</span> <span class="price-new">$@Model.ProductPriceSale</span> </p>
         <p class="submit">
-            <input type="button" value="Add to Cart" class="button">
+             <a asp-route="addcart" asp-route-productid="@Model.Id"><input type="button" value="Add to Cart" class="button"></a>
         </p>
     </div>
 }
